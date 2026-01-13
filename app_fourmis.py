@@ -101,10 +101,11 @@ def main(page: ft.Page):
     # Dessin du meilleur chemin courant
     # ==========================
         if best_path:
+            print(best_path)
             for i in range(len(best_path) - 1):
                 start_idx = best_path[i]
                 end_idx = best_path[i + 1]
-
+            
             # Vérification de sécurité
                 if start_idx < len(nodes) and end_idx < len(nodes):
                     line = create_line(
@@ -230,7 +231,7 @@ def main(page: ft.Page):
 
         # Mise à jour des variables globales
         iteration = iter_num
-        best_path = current_best_path[0] if current_best_path else []
+        best_path = current_best_path if current_best_path else []
         pheromones = current_pheromones
 
         async def update_ui():
